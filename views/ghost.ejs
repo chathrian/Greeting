@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost</title>
+    <style>
+body{
+    background: #000;
+    display: flex;    
+    align-items: center;
+    justify-content: center;  
+    height: 95vh;  
+}
+.ghost{
+    width: 120px;
+    height: 150px;
+    background: radial-gradient(#000000 7px, transparent 9px),
+                radial-gradient(#000000 10px, #fff 12px);
+    background-size: 63px 80%, 115px 69%;
+    background-position: -2px 0,5px 39px;
+    border-radius: 50% 50% 10px 10px;
+    position: relative;
+    animation: flow 1s 2s infinite alternate;
+}
+.ghost::before{
+    content: "";
+    position: absolute;
+    inset: 45% -25%;
+    width: 45%;
+    height: 21%;
+    background: #fff;
+    border-radius: 50% 50%;
+    rotate: 37deg;
+    box-shadow: 100px -79px #fff;
+}
+.ghost::after{
+    content: "";
+    position: absolute;  
+    inset: 92% -3%;
+    width: 40%;
+    height: 40%;
+    background: #000;
+    border-radius: 50% 50%;
+    box-shadow: 40px 0px, 80px 0px black;
+}
+@keyframes flow{
+    0%{box-shadow: none; filter: blur(.5px);transform: rotate(3deg);}
+    100%{box-shadow: 0px -7px 25px #fff;filter: blur(1px);
+        background-size: 63px 80%, 100px 70%; background-position: -2px -15px,5px 23px; transform: scaleY(1.2) rotateX(-3deg) translate(80px,-50px);}
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px; /* Add padding to create space for the text */
+}
+
+.center-bottom-text {
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    font-size: 32px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="ghost" ></div>
+            <div class="container">
+                <p class="center-bottom-text">I wanna kill you <%= name %>.... &#9760;</p>
+            </div>
+
+    <script>
+        // Get the reference to the div
+    // var div = document.getElementById("ghost");
+
+    // // Function to hide the div
+    // function hideDiv() {
+    //     div.style.display = "none"; // Hide the div by setting its display property to "none"
+    // }
+
+    // // Set a timeout to call the hideDiv function after 10 seconds (10000 milliseconds)
+    // setTimeout(hideDiv, 10000);
+
+    </script>
+</body>
+</html>

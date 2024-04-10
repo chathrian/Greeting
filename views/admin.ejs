@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+    <style>
+        h2{
+            text-align: center;
+            padding-top: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],  #lists {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        #lists{
+            width: 95%;
+        }
+
+        .form-group input[type="submit"] {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            width: 95%;
+            background-color: #e9a40f;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #e29c05;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome To Our Website!</h2>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Friend/Partner Name" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="msg" placeholder="Enter Your Name">
+        </div>
+        <div class="form-group">
+            <label for="">Select type</label>
+            <select name="options" id="lists">
+                <option value="s">Select One</option>
+                <option value="birthday">BirthDay Wishes</option>
+                <option value="ramadan">Ramadan Wishes</option>
+                <option value="love">Love Proposel</option>
+                <option value="marry">Marry Me</option>
+                <option value="anniversary">Anniversary Wishes</option>
+                <option value="ghost">Ghost Prank</option>
+                <option value="hack">Hacking Prank</option>
+            </select>
+        </div>
+        <!-- <h4 id="link" class="btn">Build link</h4> -->
+            
+            <div class="form-group">
+                <input type="submit" id="link" value="Build link">
+                <input type="text" id="feild" placeholder="Get your link Here!">   
+            </div>
+    </div>
+    <script>
+        let name = document.getElementById('name')
+        let msg = document.getElementById('msg')
+
+        const list = document.getElementById('lists')
+        const link = document.getElementById('link')
+        const feild = document.getElementById('feild')
+
+        let name1, msg1, list1
+
+        name.addEventListener("keyup", function(){
+            name1 = this.value
+        })
+        msg.addEventListener("keyup", function(){
+            msg1 = this.value
+        })
+        lists.addEventListener("click", function(){
+            list1 = this.value
+        })
+        
+        // let list1 = list.value
+        // console.log(list1)
+        var domain = document.domain;
+    
+        link.addEventListener("click", () => {
+            feild.value = `${domain}/${list1}/${name1}/${msg1}`
+        })
+    </script>
+</body>
+</html>
